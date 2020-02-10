@@ -4,6 +4,7 @@ from flask_restful import Resource, Api
 import requests
 
 # SCPARPING PART
+
 def scrapeLogo():
     page = requests.get("https://theinternship.io/")
     logo_list = []
@@ -16,6 +17,7 @@ def scrapeLogo():
         logo_name = logo['src']
         logo_list.append( (len(description), logo_name, description) )
     return logo_list
+
 logo_list = scrapeLogo()
 logo_list.sort()
 new_logo_list = []
@@ -23,6 +25,7 @@ for i in range( len(logo_list) ):
     new_logo_list.append( logo_list[i][1] )
 
 logo_list = new_logo_list
+
 #EDIT logo TO "https://theinternship.io/....."
 #AND CREATE DICT OF COMPANIES
 
